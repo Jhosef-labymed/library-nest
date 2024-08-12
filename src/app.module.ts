@@ -26,7 +26,7 @@ import { DatabaseModule } from './configs/modules/database.module';
         host: config.get<string>('database.host'),
         username: config.get<string>('database.username'),
         password: config.get<string>('database.password'),
-        synchronize: true,
+        synchronize: false,
         options: { trustServerCertificate: true, useUTC: true },
         database: config.get<string>('database.databaseName'),
         entities: ['dist/entities/**/*.entity{.ts,.js}'],
