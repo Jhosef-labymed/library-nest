@@ -1,9 +1,10 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AuthorsService } from './authors.service';
 import { RegisterAuthorDto } from './dtos/register-author.dto';
-import { ApiOkResponse, ApiParam } from '@nestjs/swagger';
+import { ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { ViewAuthorDto } from './dtos/view-author.dto';
 
+@ApiTags("Authors")
 @Controller('authors')
 export class AuthorsController {
   constructor(private _service: AuthorsService) {}
