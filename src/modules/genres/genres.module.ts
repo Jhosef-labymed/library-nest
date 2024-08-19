@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { GenresService } from './genres.service';
 import { GenresController } from './genres.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { SharedModule } from '../shared/shared.module';
 
 @Module({
   providers: [GenresService],
-  controllers: [GenresController]
+  controllers: [GenresController],
+  imports: [SharedModule]
 })
 export class GenresModule {}

@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('Genres')
 export class Genres {
   @PrimaryGeneratedColumn()
-  genreId: number;  
+  genreId: number;
 
   @Column('varchar', { nullable: false, length: 10 })
   code: string;
@@ -11,6 +11,6 @@ export class Genres {
   @Column('varchar', { nullable: false, length: 50 })
   genre: string;
 
-  @Column('datetime', { nullable: true })
+  @Column('datetime', { nullable: false })
   createdAt: Date;
 }

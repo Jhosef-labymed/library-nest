@@ -3,12 +3,13 @@ import { DataSource } from 'typeorm';
 import { RegisterAuthorDto } from './dtos/register-author.dto';
 import { Authors } from 'src/entities/db/authors.entity';
 import { ViewAuthorDto } from './dtos/view-author.dto';
+import { SharedService } from '../shared/shared.service';
 
 @Injectable()
 export class AuthorsService {
   private readonly logger = new Logger('AuthorService');
 
-  constructor(private readonly dataSource: DataSource) {}
+  constructor(private readonly dataSource: DataSource, private _utilsService: SharedService) {}
 
   async create(dto: RegisterAuthorDto) {
     try {
@@ -16,7 +17,7 @@ export class AuthorsService {
         .createQueryBuilder()
         .insert()
         .into(Authors)
-        .values(dto)
+        .values({author: dto.author, createdAt: this._utilsService.getDatetimeNow()})
         .execute();
 
       return {

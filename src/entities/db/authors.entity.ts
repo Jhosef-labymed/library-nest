@@ -8,6 +8,6 @@ export class Authors {
   @Column('varchar', { nullable: false, length: 250 })
   author: string;
 
-  @Column('datetime', { nullable: true, default: new Date().toISOString() })
+  @Column('datetime')
   createdAt: Date;
 }
